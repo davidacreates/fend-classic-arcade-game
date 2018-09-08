@@ -38,10 +38,10 @@ Enemy.prototype.render = function() {
 TODO:
 // Player class
 class Player {
-    constructor(x, y) {
+    constructor() {
         // set the x & y coordinates
-        this.x = x;
-        this.y = y;
+        this.x = 0;
+        this.y = 0;
         // set the image sprite
         this.sprite = 'images/char-pink-girl.png';
     }
@@ -49,8 +49,11 @@ class Player {
         // update() => update position
             // check for collision (did the enemy's x & y coordinates cross with the player's)
             // check for end of game (did the player reach the final position)
-        // render() => show position
-            // get current x and y position and draw player
+
+    // get current x and y position and draw player
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
         // handleInput() => handle keyboard input
             // update player x and y positions based on keyboard input (arrow keys)
             // check to keep player from moving offscreen
@@ -65,7 +68,8 @@ class Player {
 // Place the player object in a variable called player
 
 TODO:
-// Create new Player object
+// create new Player object
+const player = new Player();
 
 // initialize allEnemies array
 // push new Enemy object in the array for each enemy created
