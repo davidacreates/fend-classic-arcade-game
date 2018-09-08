@@ -34,17 +34,23 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-// TODO:
-// Player class
+// create Player class
 class Player {
   constructor() {
+    // set the move distance
+    this.step = 101;
+    this.jump = 83;
+    // set the origin position
+    this.xOrigin = this.step * 4;
+    this.yOrigin = this.jump * 5 - 40;
     // set the x & y coordinates
-    this.x = 0;
-    this.y = 0;
+    this.x = this.xOrigin;
+    this.y = this.yOrigin;
     // set the image sprite
     this.sprite = 'images/char-pink-girl.png';
   }
   // Methods
+  // TODO:
   // update() => update position
   // check for collision (did the enemy's x & y coordinates cross with the player's)
   // check for end of game (did the player reach the final position)
@@ -55,6 +61,23 @@ class Player {
   }
   // handleInput() => handle keyboard input
   // update player x and y positions based on keyboard input (arrow keys)
+  handleInput(key) {
+    switch (key) {
+      case 'left':
+        this.x = this.x > 0 ? this.x - this.step : this.x;
+        break;
+      case 'right':
+        this.x = this.x < this.step * 4 ? (this.x += this.step) : this.x;
+        break;
+      case 'down':
+        this.y = this.y < this.jump * 5 - 40 ? (this.y += this.jump) : this.y;
+        break;
+      case 'up':
+        this.y = this.y > 0 ? this.y - this.jump : this.y;
+        break;
+    }
+  }
+
   // check to keep player from moving offscreen
   // reset the game if player reaches water or collides with enemy
   // move player back to initial location => x and y coordinates
