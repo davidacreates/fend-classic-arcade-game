@@ -3,7 +3,6 @@ var Enemy = function(x, y, speed) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
 
-  // TODO:
   // set the move distance
   this.step = 101;
   this.jump = 83;
@@ -63,12 +62,17 @@ class Player {
   // TODO:
   // update() => update position
   // check for collision (did the enemy's x & y coordinates cross with the player's)
+  update() {
+
+  }
+
+  // TODO:
   // check for end of game (did the player reach the final position)
 
   // get current x and y position and draw player
-  render() {
+  render() => {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
+
   // handleInput() => handle keyboard input
   // update player x and y positions based on keyboard input (arrow keys)
   // prevent player from moving offscreen
