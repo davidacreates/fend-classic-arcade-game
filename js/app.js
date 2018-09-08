@@ -1,12 +1,17 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, speed) {
   // Variables applied to each of our instances go here,
   // we've provided one for you to get started
 
   // TODO:
+  // set the move distance
+  this.step = 101;
+  this.jump = 83;
   // set initial location (x & y coordinates)
+  this.x = x;
+  this.y = y + 45;
   // set the speed
-
+  this.speed = speed;
   // The image/sprite for our enemies, this uses
   // a helper we've provided to easily load images
   this.sprite = 'images/enemy-bug.png';
@@ -23,6 +28,11 @@ Enemy.prototype.update = function(dt) {
   // multiple x by dt parameter
   // else
   // set position to start
+
+  this.x =
+    this.x < this.step * 5
+      ? (this.x += dt * this.speed)
+      : (this.x = -this.step);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -61,6 +71,7 @@ class Player {
   }
   // handleInput() => handle keyboard input
   // update player x and y positions based on keyboard input (arrow keys)
+  // prevent player from moving offscreen
   handleInput(key) {
     switch (key) {
       case 'left':
@@ -77,8 +88,6 @@ class Player {
         break;
     }
   }
-
-  // check to keep player from moving offscreen
   // reset the game if player reaches water or collides with enemy
   // move player back to initial location => x and y coordinates
 }
@@ -90,9 +99,14 @@ class Player {
 // TODO:
 // create new Player object
 const player = new Player();
-
+// create new nemy object
+const enemy1 = new Enemy(-101, 0, 300);
+const enemy2 = new Enemy(-101, 83, 100);
+const enemy3 = new Enemy(-101 * 2.5, 83 * 2, 200);
 // initialize allEnemies array
 // push new Enemy object in the array for each enemy created
+const allEnemies = [];
+allEnemies.push(enemy1, enemy2, enemy3);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
