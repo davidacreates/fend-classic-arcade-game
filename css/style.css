@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
   text-align: center;
 }
 
@@ -18,4 +19,7 @@ body {
 
 .show {
   display: block;
+=======
+    text-align: center;
+>>>>>>> 711de9c7043bff9704c5e1858bb19eaf9a188c3f
 }

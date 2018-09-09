@@ -8,7 +8,11 @@ var Enemy = function(x, y, speed) {
   this.jump = 83;
   // set initial location (x & y coordinates)
   this.x = x;
+<<<<<<< HEAD
   this.y = y + 43;
+=======
+  this.y = y + 45;
+>>>>>>> 711de9c7043bff9704c5e1858bb19eaf9a188c3f
   // set the speed
   this.speed = speed;
   // The image/sprite for our enemies, this uses
@@ -50,13 +54,18 @@ class Player {
     this.step = 101;
     this.jump = 83;
     // set the origin position
+<<<<<<< HEAD
     this.xOrigin = this.step * 2;
+=======
+    this.xOrigin = this.step * 4;
+>>>>>>> 711de9c7043bff9704c5e1858bb19eaf9a188c3f
     this.yOrigin = this.jump * 5 - 40;
     // set the x & y coordinates
     this.x = this.xOrigin;
     this.y = this.yOrigin;
     // set the image sprite
     this.sprite = 'images/char-pink-girl.png';
+<<<<<<< HEAD
     // set win status
     this.win = false;
   }
@@ -84,6 +93,23 @@ class Player {
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
+=======
+  }
+  // Methods
+  // TODO:
+  // update() => update position
+  // check for collision (did the enemy's x & y coordinates cross with the player's)
+  update() {
+
+  }
+
+  // TODO:
+  // check for end of game (did the player reach the final position)
+
+  // get current x and y position and draw player
+  render() => {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+>>>>>>> 711de9c7043bff9704c5e1858bb19eaf9a188c3f
 
   // handleInput() => handle keyboard input
   // update player x and y positions based on keyboard input (arrow keys)
