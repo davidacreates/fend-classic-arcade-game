@@ -61,9 +61,9 @@ var Engine = (function(global) {
          */
     // replay and reset game
     playAgain.addEventListener('click', () => {
-      player.win = false;
       modal.classList.remove('show');
       player.restart();
+      player.win = false;
       win.requestAnimationFrame(main);
     });
 

@@ -2,7 +2,6 @@ body {
   text-align: center;
 }
 
-/* code credit: https://css-tricks.com/considerations-styling-modal/ */
 .modal__bg {
   position: absolute;
   top: 40%;
