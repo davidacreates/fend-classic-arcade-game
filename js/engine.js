@@ -13,7 +13,7 @@
  * writing app.js a little simpler to work with.
  */
 
-var Engine = (function(global) {
+var Engine = (function (global) {
   /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas elements height/width and add it to the DOM.
@@ -27,6 +27,14 @@ var Engine = (function(global) {
 
   const modal = document.querySelector('.modal__bg');
   const playAgain = document.querySelector('.modal__button');
+
+  // functionality to click modal button to play the game again
+  playAgain.addEventListener('click', () => {
+    modal.classList.remove('show');
+    player.reset();
+    player.win = false;
+    win.requestAnimationFrame(main);
+  });
 
   canvas.width = 505;
   canvas.height = 606;
@@ -59,13 +67,6 @@ var Engine = (function(global) {
     /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-    // replay and reset game
-    playAgain.addEventListener('click', () => {
-      modal.classList.remove('show');
-      player.restart();
-      player.win = false;
-      win.requestAnimationFrame(main);
-    });
 
     if (player.win === true) {
       win.cancelAnimationFrame(id);
@@ -107,7 +108,7 @@ var Engine = (function(global) {
      * render methods.
      */
   function updateEntities(dt) {
-    allEnemies.forEach(function(enemy) {
+    allEnemies.forEach(function (enemy) {
       enemy.update(dt);
     });
     player.update();
@@ -124,13 +125,13 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
     var rowImages = [
-        'images/water-block.png', // Top row is water
-        'images/stone-block.png', // Row 1 of 3 of stone
-        'images/stone-block.png', // Row 2 of 3 of stone
-        'images/stone-block.png', // Row 3 of 3 of stone
-        'images/grass-block.png', // Row 1 of 2 of grass
-        'images/grass-block.png' // Row 2 of 2 of grass
-      ],
+      'images/water-block.png', // Top row is water
+      'images/stone-block.png', // Row 1 of 3 of stone
+      'images/stone-block.png', // Row 2 of 3 of stone
+      'images/stone-block.png', // Row 3 of 3 of stone
+      'images/grass-block.png', // Row 1 of 2 of grass
+      'images/grass-block.png' // Row 2 of 2 of grass
+    ],
       numRows = 6,
       numCols = 5,
       row,
@@ -167,7 +168,7 @@ var Engine = (function(global) {
     /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
-    allEnemies.forEach(function(enemy) {
+    allEnemies.forEach(function (enemy) {
       enemy.render();
     });
 
@@ -178,8 +179,9 @@ var Engine = (function(global) {
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
+
+
   function reset() {
-    // noop
   }
 
   /* Go ahead and load all of the images we know we're going to need to
