@@ -25,4 +25,5 @@ If your player makes it to the water without colliding with an enemy, congratula
 - CSS
 - JavaScript
 
-
+## Notes
+The game engine and art assets was provided by Udacity team. I was responsible for implementing the game functionality.
